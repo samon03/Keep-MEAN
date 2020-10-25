@@ -1,0 +1,44 @@
+<div class="card">
+  <mat-card>
+    <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="notesService.selectedNote._id">
+      <mat-card-content class="card-content">
+        <mat-form-field class="full-width">
+          <input matInput name="title" #name="ngModel" [(ngModel)]="notesService.selectedNote.title" placeholder="Title">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <textarea matInput name="description" #name="ngModel" [(ngModel)]="notesService.selectedNote.description" placeholder="Take a note" required></textarea>
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions class="card-actions">
+          <button mat-raised-button type="submit" color="primary" [disabled]="!noteForm.valid">Submit</button>
+          <button mat-raised-button type="button" (click)="resetForm(noteForm)">Reset</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
+
+<div>
+  <div class="cardList">
+    <mat-card  class="cardListItem" *ngFor="let val of notesService.notes">
+      <mat-card-content>
+        <mat-label><h3>{{ val.title }}</h3></mat-label>
+        <mat-label>
+          <p>{{ val.description }}</p>
+        </mat-label>
+      </mat-card-content>
+      <mat-card-footer class="card-actions">
+        <a (click)="onDelete(val._id, noteForm)">
+          <mat-icon>delete</mat-icon>
+        </a>
+        <span class="space-btween"></span>
+        <a (click)="onEdit(val)">
+          <mat-icon>edit</mat-icon>
+        </a>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+

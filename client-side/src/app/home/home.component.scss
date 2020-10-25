@@ -1,0 +1,79 @@
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  align-items: center;
+}
+
+.mat-card
+{
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.card .mat-card
+{
+  width: 500px;
+  min-width: 150px;
+  max-width: 500px;
+  padding: 16px 32px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+// button
+
+.card-actions {
+  display: flex;
+  max-width: 500px;
+  justify-content: right;
+  padding: 0;
+  margin: 0;
+}
+
+// extra
+
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.cardListItem {
+  flex: 0 1 calc(32.3% - 31px);
+  margin: 5px;
+}
+
+.mat-card-footer a:first-child
+{
+  color: rgba(245, 61, 16, 0.979);
+}
+
+.mat-card-footer a:nth-last-child(1)
+{
+  color: rgba(13, 189, 71, 0.884);
+}
+
+.mat-card-footer a
+{
+  margin: 5px;
+  padding: 5px;
+}
+
+.mat-card-footer a:hover
+{
+  color: dodgerblue;
+}
+
+@media screen and (max-width: 600px) {
+
+  .cardListItem {
+    flex: 100%;
+  }
+}
